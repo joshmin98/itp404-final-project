@@ -1,57 +1,41 @@
-# final-project
+# Final Project: Custom Image Classifier 
 
-This README outlines the details of collaborating on this Ember application.
-A short introduction of this app could easily go here.
+## Problem
+There are several excellent pre-trained image classification models, and while many may be extensive with respect to how many labels (i.e. how many things they can classify) they have, no model is all-encompassing.
 
-## Prerequisites
+## Solution
+My application will be a novel solution to this problem. I will use the ml5.js library's feature extraction capabilities to train a webcam image classifier based on user-defined labels in the browser.
 
-You will need the following things properly installed on your computer.
+## Audience
+People interested in machine learning. Hot dog/not a hot dog enthusiasts.
 
-* [Git](https://git-scm.com/)
-* [Node.js](https://nodejs.org/) (with npm)
-* [Ember CLI](https://ember-cli.com/)
-* [Google Chrome](https://google.com/chrome/)
+## Project Requirements
 
-## Installation
+### Routes
+`/` Our index route where the main application sits
+`/about` An 'about' route giving the project details
+`/more`' A route containing links to more toy machine-learning websites
+`/contact` A route 
 
-* `git clone <repository-url>` this repository
-* `cd final-project`
-* `npm install`
+### Requests
+*POST* `/api/label:id` will create a new training label
+*PUT/PATCH* `/api/label:id` will rename a training label
+*GET* `/api/label:id` will return the current likelihood that the webcam image is like the label
+*DELETE* `/api/label:id` will delete the label
 
-## Running / Development
+### Form Validation
+Creating a label will require submitting a form. The form will have a single field requiring the label name. The field may not be left blank.
+The `/contact` route will contain a form allowing the user to send me an email. It will have fields "name", "comment", and "email". None of which may be left blank. The "email" parameter must have a validly formatted email address.
 
-* `ember serve`
-* Visit your app at [http://localhost:4200](http://localhost:4200).
-* Visit your tests at [http://localhost:4200/tests](http://localhost:4200/tests).
+### Component(s)
+TBD
 
-### Code Generators
+### Addon(s)
+Liquid Fire for route transition animations
+Ember-Notifyme for notifying the user when the training step has finished
 
-Make use of the many generators for code, try `ember help generate` for more details
+### Acceptance Tests
+TBD
 
-### Running Tests
-
-* `ember test`
-* `ember test --server`
-
-### Linting
-
-* `npm run lint:hbs`
-* `npm run lint:js`
-* `npm run lint:js -- --fix`
-
-### Building
-
-* `ember build` (development)
-* `ember build --environment production` (production)
-
-### Deploying
-
-Specify what it takes to deploy your app.
-
-## Further Reading / Useful Links
-
-* [ember.js](https://emberjs.com/)
-* [ember-cli](https://ember-cli.com/)
-* Development Browser Extensions
-  * [ember inspector for chrome](https://chrome.google.com/webstore/detail/ember-inspector/bmdblncegkenkacieihfhpjfppoconhi)
-  * [ember inspector for firefox](https://addons.mozilla.org/en-US/firefox/addon/ember-inspector/)
+### Integration (Component) Tests
+TBD
