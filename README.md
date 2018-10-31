@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.org/joshmin98/itp404-final-project.svg?branch=master)](https://travis-ci.org/joshmin98/itp404-final-project)
+
 # Final Project: Custom Image Classifier 
 
 ## Problem
