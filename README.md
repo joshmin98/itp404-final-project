@@ -17,7 +17,7 @@ People interested in machine learning. Hot dog/not a hot dog enthusiasts.
 `/` Our index route where the main application sits  
 `/about` An 'about' route giving the project details  
 `/more`' A route containing links to more toy machine-learning websites  
-`/contact` A route  
+`/contact` A route containing a form for the user to contact the creator via email
 
 ### Requests
 *POST* `/api/label:id` will create a new training label  
