@@ -1,7 +1,7 @@
 {{#bs-carousel as |data|}}
 {{#each model.images as |src|}}
 {{#data.slide}}
-  <img src={{src}}>
+  <img data-test="image" src={{src}}>
   <div class="carousel-caption">
     {{model.label}}
   </div>

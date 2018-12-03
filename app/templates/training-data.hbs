@@ -3,9 +3,11 @@
   <h2>Images</h2>
   <div class="list-group">
     {{#each model as |label|}}
+    <span data-test="label">
     {{#link-to "label" label.id class="list-group-item list-group-item-action"}}
     {{label.label}}
     {{/link-to}}
+    </span>
     {{/each}}
   </div>
 {{else}}
