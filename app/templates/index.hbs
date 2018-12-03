@@ -1,0 +1,17 @@
+<br>
+<div class="row align-items-center justify-content-center">
+  <div class="col">
+    {{#webcam-view
+    didSnap=(action 'submit')
+    as |camera|
+    }}
+    <br>
+      <button {{action camera.snap}} class="btn btn-primary" disabled={{waiting}}>Classify Me</button>
+    {{/webcam-view}}
+  </div>
+  <div class="col">
+    {{#if label}}
+    <h1>That is a {{label}}</h1>
+    {{/if}}
+  </div>
+</div>

@@ -1,0 +1,10 @@
+{{#bs-carousel as |data|}}
+{{#each model.images as |src|}}
+{{#data.slide}}
+  <img src={{src}}>
+  <div class="carousel-caption">
+    {{model.label}}
+  </div>
+{{/data.slide}}
+{{/each}}
+{{/bs-carousel}}

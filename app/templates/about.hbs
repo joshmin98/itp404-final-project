@@ -1,0 +1,9 @@
+<h1>About</h1>
+<p>This application is a demo of what can be done (to a varying degree of effectiveness) with in-browser machine learning using Tensorflow.js. I used Tensorflow to deploy a pretrained image classification model, "Mobilenet", alongside Ember and Webcam.js to create this simple webcam image classification app.</p>
+
+<h1>Contact Me</h1>
+{{#bs-form formLayout=formLayout onSubmit=(action "sendMail") model=this as |form|}}
+  {{form.element controlType="email" label="Email" placeholder="Email" property="email" required=true}}
+  {{form.element controlType="textarea" label="Comments" property="comments"}}
+  {{bs-button defaultText="Submit" type="primary" buttonType="submit"}}
+{{/bs-form}}

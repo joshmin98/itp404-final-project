@@ -7,6 +7,9 @@ const Router = EmberRouter.extend({
 });
 
 Router.map(function() {
+  this.route('training-data', { path: 'labeled-images' });
+  this.route('label', {path: '/labeled-images/:id'});
+  this.route('about');
 });
 
 export default Router;
