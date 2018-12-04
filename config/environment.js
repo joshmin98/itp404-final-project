@@ -45,7 +45,7 @@ module.exports = function(environment) {
 
   if (environment === 'production') {
     // here you can enable a production-specific feature
-    ENV['ember-cli-surge'] = {
+    ENV['ember-cli-mirage'] = {
       enabled: true
     };
   }
