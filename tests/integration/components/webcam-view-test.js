@@ -6,21 +6,25 @@ import hbs from 'htmlbars-inline-precompile';
 module('Integration | Component | webcam-view', function(hooks) {
   setupRenderingTest(hooks);
 
-  test('it renders', async function(assert) {
-    // Set any properties with this.set('myProperty', 'value');
-    // Handle any actions with this.set('myAction', function(val) { ... });
-
+  test('webcam renders with children', async function(assert) {
     await render(hbs`{{webcam-view}}`);
-
     assert.equal(this.element.textContent.trim(), '');
-
-    // Template block usage:
     await render(hbs`
       {{#webcam-view}}
         template block text
       {{/webcam-view}}
     `);
-
     assert.equal(this.element.textContent.trim(), 'template block text');
   });
+
+  test('webcam renders without children', async function(assert) {
+    await render(hbs`{{webcam-view}}`);
+    assert.equal(this.element.textContent.trim(), '');
+    await render(hbs`
+      {{#webcam-view}}
+      {{/webcam-view}}
+    `);
+    assert.equal(this.element.textContent.trim(), '');
+  });
+
 });

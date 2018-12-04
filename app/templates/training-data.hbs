@@ -1,12 +1,14 @@
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
 <br>
 {{#if model}}
   <h2>Images</h2>
   <div class="list-group">
     {{#each model as |label|}}
-    <span data-test="label">
-    {{#link-to "label" label.id class="list-group-item list-group-item-action"}}
+    <span data-test="label" class="list-group-item list-group-item-action">
+    {{#link-to "label" label.id }}
     {{label.label}}
     {{/link-to}}
+    <i data-test="trash" class="fas fa-trash" onclick={{action "deleteLabel" label}}></i>
     </span>
     {{/each}}
   </div>

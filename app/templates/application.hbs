@@ -1,34 +1,34 @@
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
   {{#bs-button active=notCollapsed onClick=(action "toggle")}}
-  {{#if collapsed}}
-  Show Navigation
-  {{else}}
-  Hide Navigation
-  {{/if}}
+    {{#if collapsed}}
+      Show Navigation
+    {{else}}
+      Hide Navigation
+    {{/if}}
   {{/bs-button}}
   <br>
   {{#bs-collapse collapsed=collapsed}}
     <ul class="navbar-nav">
       <li class="nav-item">
 	{{#link-to "index" class="nav-link"}}
-	Home
+	  Home
 	{{/link-to}}
       </li>
       <li class="nav-item">
 	{{#link-to "training-data" class="nav-link"}}
-	Labeled Images
+	  Labeled Images
 	{{/link-to}}
       </li>
       <li class="nav-item">
 	{{#link-to "about" class="nav-link"}}
-	About
+	  About
 	{{/link-to}}
       </li>
     </ul>
-{{/bs-collapse}}
+  {{/bs-collapse}}
 
 </nav>
 
 <div class="container">
-{{outlet}}
+  {{outlet}}
 </div>

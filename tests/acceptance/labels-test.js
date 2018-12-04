@@ -1,5 +1,5 @@
 import { module, test } from 'qunit';
-import { visit, currentURL } from '@ember/test-helpers';
+import { visit, currentURL, click } from '@ember/test-helpers';
 import { setupApplicationTest } from 'ember-qunit';
 import setupMirage from 'ember-cli-mirage/test-support/setup-mirage';
 
@@ -22,5 +22,15 @@ module('Acceptance | labels', function(hooks) {
     });
     await visit('labeled-images/1');
     assert.dom('[data-test="image"]').exists();
+  });
+
+  test('deleting a label', async function(assert) {
+    server.create('label', {
+      label: 'test',
+      images: []
+    });
+    await visit('/labeled-images');
+    await click('[data-test="trash"]');
+    assert.dom('[data-test="label"]').exists({ count: 0});
   });
 });

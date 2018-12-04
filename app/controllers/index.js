@@ -4,7 +4,6 @@ import labels from '../labels';
 import * as tf from '@tensorflow/tfjs';
 
 export default Controller.extend({
-  labelMap: {'': 0},
   img: null,
   waiting: false,
   label: null,
@@ -13,15 +12,15 @@ export default Controller.extend({
       this.set('waiting', true);
       this.set('img', dataURI);
       this.loadMobileNet().then(pretrainedModel => {
-	this.loadImage(this.img).then(img => {
-	  const processedImage = this.loadAndProcessImage(img);
-	  const prediction = pretrainedModel.predict(processedImage);
-	  const labelPrediction = prediction.as1D().argMax().dataSync()[0];
-	  this.set('label', labels[labelPrediction]);
-	}).then(() => {
-	  let saveCapture = this.saveLabeledImage.bind(this);
-	  saveCapture();
-	});
+        this.loadImage(this.img).then(img => {
+          const processedImage = this.loadAndProcessImage(img);
+          const prediction = pretrainedModel.predict(processedImage);
+          const labelPrediction = prediction.as1D().argMax().dataSync()[0];
+          this.set('label', labels[labelPrediction]);
+        }).then(() => {
+          let saveCapture = this.saveLabeledImage.bind(this);
+          saveCapture();
+        });
       });
     },
   },
@@ -62,29 +61,29 @@ export default Controller.extend({
   saveLabeledImage() {
     this.store.findAll('label').then(labels => {
       if(labels.length == 0) {
-	let newLabel = this.store.createRecord('label', {
-	  label: this.label,
-	  images: [this.img]
-	});
-	newLabel.save();
+        let newLabel = this.store.createRecord('label', {
+          label: this.label,
+          images: [this.img]
+        });
+        newLabel.save();
       } else {
-	let alreadyFound = false;
-	labels.forEach(label => {
-	  if(this.label == label.get('label')) {
-	    alreadyFound = true;
-	    let images = label.get('images');
-	    images.push(this.img);
-	    label.set('images', images);
-	    label.save();
-	  }
-	});
-	if(!alreadyFound) {
-	  let newLabel = this.store.createRecord('label', {
-	    label: this.label,
-	    images: [this.img]
-	  });
-	  newLabel.save();
-	}
+        let alreadyFound = false;
+        labels.forEach(label => {
+          if(this.label == label.get('label')) {
+            alreadyFound = true;
+            let images = label.get('images');
+            images.push(this.img);
+            label.set('images', images);
+            label.save();
+          }
+        });
+        if(!alreadyFound) {
+          let newLabel = this.store.createRecord('label', {
+            label: this.label,
+            images: [this.img]
+          });
+          newLabel.save();
+        }
       }
     });
     this.set('waiting', false);

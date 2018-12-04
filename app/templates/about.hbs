@@ -3,7 +3,7 @@
 
 <h1>Contact Me</h1>
 {{#bs-form formLayout=formLayout onSubmit=(action "sendMail") model=this as |form|}}
-  {{form.element controlType="email" label="Email" placeholder="Email" property="email" required=true}}
-  {{form.element controlType="textarea" label="Comments" property="comments"}}
-  {{bs-button defaultText="Submit" type="primary" buttonType="submit"}}
+    {{form.element controlType="email" label="Email" placeholder="Email" property="email" required=true}}
+    {{form.element controlType="textarea" label="Comments" property="comments"}}
+    {{bs-button defaultText="Submit" type="primary" buttonType="submit"}}
 {{/bs-form}}

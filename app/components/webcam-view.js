@@ -5,7 +5,7 @@ export default Component.extend({
   classNames: ['ember-webcam'],
   cameraId: "webcam",
   init() {
-    this._super(...arguments),
+    this._super(...arguments);
     this.set('camera', {
       snap: this.snap.bind(this)
     });
